@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 
 import com.udemy.fr.dto.ReservationRequest;
 import com.udemy.fr.entities.Flight;
@@ -41,6 +41,7 @@ public class ReservationServiceImpl implements ReservationService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationServiceImpl.class);
 	
 	@Override
+	@Transactional
 	public Reservation bookFlight(ReservationRequest request) {
 		//Make Payment
 		LOGGER.info("Inside the Book flight()");
